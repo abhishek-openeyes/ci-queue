@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 11, 2020 at 01:31 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.31
+-- Host: 127.0.0.1:3306
+-- Generation Time: Jul 20, 2020 at 12:23 PM
+-- Server version: 10.4.10-MariaDB
+-- PHP Version: 5.6.40
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `emailqueue`
+-- Database: `lms`
 --
 
 -- --------------------------------------------------------
@@ -27,40 +28,19 @@ SET time_zone = "+00:00";
 -- Table structure for table `email_queue`
 --
 
-CREATE TABLE `email_queue` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `email_queue`;
+CREATE TABLE IF NOT EXISTS `email_queue` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `to` varchar(255) NOT NULL,
   `cc` varchar(255) DEFAULT NULL,
   `bcc` varchar(255) DEFAULT NULL,
   `headers` text DEFAULT NULL,
   `message` text NOT NULL,
+  `attachments` text DEFAULT NULL,
   `status` enum('pending','sending','sent','failed') DEFAULT NULL,
-  `date` datetime DEFAULT NULL
+  `date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `email_queue`
---
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `email_queue`
---
-ALTER TABLE `email_queue`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `email_queue`
---
-ALTER TABLE `email_queue`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
