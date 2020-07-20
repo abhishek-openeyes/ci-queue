@@ -10,13 +10,13 @@ class Email_queue extends CI_Controller
 
     public function index()
     {
-        //echo "demo";die();
-        $from_email = "abhishek@example.com";
-        $to_email = "abhishek.patel@theopeneyes.in";
+       
+        $from_email = "xyz@example.com";
+        $to_email = "your_emailId@theopeneyes.in";
 
-        //Load email library
-        $this->load->library('email');
-    //    $this->load->helper('email_details');
+    
+        $this->load->library('email'); // if not put in auto load
+    
 
         $this->email->from($from_email, 'Your Name');
         $this->email->to($to_email);

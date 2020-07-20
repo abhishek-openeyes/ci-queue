@@ -7,7 +7,8 @@
 
 
 
+
 testing : http://localhost/Project_name/Email_queue/
 Sending : http://localhost/Project_name/Email_queue/send_queue
 Retry   : http://localhost/Project_name/Email_queue/retry_queue
-Delete  : http://localhost/Project_name/Email_queue/delete_queue
+Delete  : http://localhost/Project_name/Email_queue/delete_queue (delete data before current date to 1 week before data has status is not pending)
